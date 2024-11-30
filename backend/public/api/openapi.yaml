@@ -1,0 +1,345 @@
+openapi: '3.0.1'
+info:
+  title: Cadastro de Despesas
+  description: >
+    O Cadastro de Despesas é um serviço que gerencia as despesas. Cada despesa possui uma descrição, um valor, uma data, uma imagem e um categoria opcional.
+  version: '0.1'
+servers:
+  - url: http://{host}:{porta}/api
+    variables:
+      host:
+        default: localhost
+      porta:
+        default: '8000'
+paths:
+  /users: 
+    get:
+      summary: Acessar todos os usuários
+      responses:
+        '200':
+          description: Lista de usuários obtida com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+    post:
+      summary: Criar um novo usuário
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: O nome do usuário.
+                  example: "Alexa Silva"
+                email:
+                  type: string
+                  description: O email do usuário.
+                  example: "joao@example.com"
+                password:
+                  type: string
+                  description: A password do usuário.
+                  example: "senha123"
+      responses:
+        '201':
+          description: Usuário criado com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado.
+        '400':
+          description: Requisição inválida
+
+  /users/{userId}:
+    get:
+      summary: Obter um usuário específico
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalhes do usuário obtidos com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Usuário não encontrado
+
+    put:
+      summary: Atualizar um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: O nome do usuário.
+                  example: "João Silva"
+                email:
+                  type: string
+                  description: O email do usuário.
+                  example: "joao@novoemail.com"
+      responses:
+        '200':
+          description: Usuário atualizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Dados inválidos
+        '404':
+          description: Usuário não encontrado
+
+    delete:
+      summary: Deletar um usuário (Lembrando que só pode deletar se não tiver chave estrangeira conectada )
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Usuário deletado com sucesso
+        '404':
+          description: Usuário não encontrado
+
+  /users/{userId}/despesas:
+    get:
+      summary: Acessar todas as despesas de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Lista de despesas do usuário obtida com sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Despesa'
+        '404':
+          description: Usuário não encontrado
+
+    post:
+      summary: Criar uma nova despesa para um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                descricao:
+                  type: string
+                  description: A descrição da despesa.
+                  example: "Compra de materiais"
+                value:
+                  type: number
+                  format: float
+                  description: O valor da despesa.
+                  example: 150.75
+                data:
+                  type: string
+                  format: date
+                  description: A data da despesa.
+                  example: "2024-10-20"
+                imagem:
+                  type: string
+                  description: O caminho da imagem relacionada à despesa.
+                  example: "imagens/exemplo.jpg"
+                categoria:
+                  type: string
+                  description: O caminho do categoria relacionado à despesa.
+                  example: "Alimentacao"
+      responses:
+        '201':
+          description: Despesa criada com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  location:
+                    type: string
+                    description: O URI do novo recurso criado.
+        '400':
+          description: Requisição inválida
+
+  /users/{userId}/despesas/{id}:
+    get:
+      summary: Obter uma despesa específica de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+        - name: id
+          in: path
+          required: true
+          description: ID da despesa
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Detalhes da despesa obtidos com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Despesa'
+        '404':
+          description: Despesa ou usuário não encontrado
+
+    put:
+      summary: Atualizar uma despesa de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+        - name: id
+          in: path
+          required: true
+          description: ID da despesa
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                descricao:
+                  type: string
+                  description: A descrição da despesa.
+                  example: "Compra de equipamentos"
+                value:
+                  type: number
+                  format: float
+                  description: O novo valor da despesa.
+                  example: 200.00
+                data:
+                  type: string
+                  format: date
+                  description: A nova data da despesa.
+                  example: "2024-10-21"
+                imagem:
+                  type: string
+                  description: O caminho da nova imagem relacionada à despesa.
+                  example: "imagens/nova_exemplo.jpg"
+                categoria:
+                  type: string
+                  description: A categoria da despesa.
+                  example: "Alimentação"
+      responses:
+        '200':
+          description: Despesa atualizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Despesa'
+        '400':
+          description: Dados em formato errado
+        '404':
+          description: Despesa ou usuário não encontrado
+
+    delete:
+      summary: Deletar uma despesa de um usuário
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: ID do usuário
+          schema:
+            type: integer
+        - name: id
+          in: path
+          required: true
+          description: ID da despesa
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Despesa deletada com sucesso
+        '404':
+          description: Despesa ou usuário não encontrado
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        idade:
+          type: integer
+
+    Despesa:
+      type: object
+      properties:
+        id:
+          type: integer
+        user_id:
+          type: integer
+        descricao:
+          type: string
+        value:
+          type: number
+          format: float
+        data:
+          type: string
+          format: date
+        imagem:
+          type: string
+          description: O caminho da imagem relacionada à despesa.
+        categoria:
+          type: string
+          description: O caminho do categoria relacionado à despesa.

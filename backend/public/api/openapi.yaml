@@ -173,20 +173,26 @@ paths:
                   type: string
                   description: A descrição da despesa.
                   example: "Compra de materiais"
-                value:
+                gasto:
                   type: number
                   format: float
                   description: O valor da despesa.
                   example: 150.75
+                receita:
+                  type: number
+                  format: float
+                  description: O valor da receita.
+                  example: 150.75
+                limite:
+                  type: number
+                  format: float
+                  description: O valor do limite.
+                  example: 2000.00
                 data:
                   type: string
                   format: date
                   description: A data da despesa.
                   example: "2024-10-20"
-                imagem:
-                  type: string
-                  description: O caminho da imagem relacionada à despesa.
-                  example: "imagens/exemplo.jpg"
                 categoria:
                   type: string
                   description: O caminho do categoria relacionado à despesa.
@@ -257,20 +263,26 @@ paths:
                   type: string
                   description: A descrição da despesa.
                   example: "Compra de equipamentos"
-                value:
+                gasto:
                   type: number
                   format: float
-                  description: O novo valor da despesa.
+                  description: Gasto da despesa.
+                  example: 500.00
+                receita:
+                  type: number
+                  format: float
+                  description: receita da despesa.
                   example: 200.00
+                limite:
+                  type: number
+                  format: float
+                  description: limite da despesa.
+                  example: 2000.00
                 data:
                   type: string
                   format: date
                   description: A nova data da despesa.
                   example: "2024-10-21"
-                imagem:
-                  type: string
-                  description: O caminho da nova imagem relacionada à despesa.
-                  example: "imagens/nova_exemplo.jpg"
                 categoria:
                   type: string
                   description: A categoria da despesa.
@@ -331,15 +343,18 @@ components:
           type: integer
         descricao:
           type: string
-        value:
+        gasto:
+          type: number
+          format: float
+        receita:
+          type: number
+          format: float
+        limite:
           type: number
           format: float
         data:
           type: string
           format: date
-        imagem:
-          type: string
-          description: O caminho da imagem relacionada à despesa.
         categoria:
           type: string
           description: O caminho do categoria relacionado à despesa.

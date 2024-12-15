@@ -1,0 +1,478 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif
+}
+.SaidBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #1E3F4D;
+    width: 70px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color: aliceblue;
+    font-size: 30px;
+    box-shadow: 10px 0 4px rgba(0, 0, 0, .15);
+}
+.SaidBar .Home{
+    width: 65px;
+    height: 65px;
+}
+.SaidBar .Itens{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.Home img{
+    width: 50px;
+    height: 50px;
+    
+}
+.SaidBar .Itens ul{
+  margin-left: -30px;
+  text-align: center;
+}
+.SaidBar .Itens ul li{
+    list-style: none;
+    margin: 10px 0;
+    text-shadow: 5px 0 4px rgba(0, 0, 0, .15);
+}
+.SaidBar .Itens ul li:hover{
+    color: #d7ae5d;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, .25);
+}
+.SaidBar .Itens ul li i:hover{
+  cursor: pointer;
+}
+/**                                               M O D A L                                                */
+.ModalBackgrond1{
+    position: fixed;
+    top:0;
+    left:70px;
+    right:0;
+    background-color: transparent;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Modal1{
+    /* background-color: #1E3F4D; */
+    color: #000000;
+    border-radius: 10px;
+    padding: 25px 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .Modal1 h1{
+    font-size: 35px;
+    text-align: center;
+    margin: 0 0 10px 15px;
+    background: linear-gradient(to bottom, #FCDB9A, #BF7D3B);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip:text;
+    font-weight: 600;
+    text-shadow:  3px 3px 8px rgba(255, 255, 255, 0.10);
+  }
+  .Modal1 .ExitBnt{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-self: right;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(to bottom, #D7BF92, #D2A74E, #D2A74E, #6C5628);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+  }
+  .ExitBnt a{
+    color: #ffffff;
+  }
+  .ExitBnt:hover{
+    background-color: rgba(180, 184, 183, 0.904);
+  }
+  .ExitBnt a:hover{
+    color: #ffffff;
+  }
+  .Modal1 form{
+    padding: 0 25px;
+  }
+  .Modal1 form button{
+    width: 100%;
+    height: 45px;
+    margin: 25px 0 50px 0;
+    background: linear-gradient(to bottom, #D7BF92, #D2A74E, #D2A74E, #6C5628);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    cursor: pointer;
+    font-size: 16px;
+    color:#ffffff;
+    font-weight: 600;
+  }
+  .Modal1 form button:hover{
+    background: linear-gradient(to bottom, #D2A74E, #6C5628);
+    color:#ffffff;
+  }
+  .Modal1 input{
+    width: 100%;
+    height: 100%;
+    margin: 5px 0px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, .2);
+    border-radius: 40px;
+    font-size: 15px;
+    color: #000000;
+    padding: 10px 20px;
+  }
+  .Content{
+    background-color: #306a7a;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 ;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+  }
+
+  /*~                                             MODAL HOME                                                */
+  /*~                                        MODAL          HOME                                            */
+  /*~                                             MODAL HOME                                                */
+
+  .ModalBackgrond2{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Modal2{
+    background-color: #1E3F4D;
+    color: #000000;
+    border-radius: 10px;
+    padding: 25px 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .Modal1 .ExitBnt{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-self: right;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(to bottom, #D7BF92, #D2A74E, #D2A74E, #6C5628);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+  }
+  .Modal2 h1{
+    font-size: 30px;
+    text-align: center;
+    margin: 0 0 10px 15px;
+    background: linear-gradient(to bottom, #FCDB9A, #BF7D3B);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip:text;
+    font-weight: 600;
+    text-shadow:  3px 3px 8px rgba(255, 255, 255, 0.10);
+  }
+  #userName{
+    padding-bottom: 10px;
+    background: linear-gradient(80deg, #D7BF92, #D2A74E, #D2A74E, #D2A74E, #D2A74E, #6C5628, #6C5628, #6C5628, #6C5628);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip:text;
+  }
+  .Modal2 form{
+    padding: 30px 0px 0px 0px;
+  }
+  .Modal2 form button{
+    width: 100%;
+    height: 45px;
+    margin: 15px 0 10px 0;
+    background: linear-gradient(to bottom, #D7BF92, #D2A74E, #D2A74E, #6C5628);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    cursor: pointer;
+    font-size: 16px;
+    color:#ffffff;
+    font-weight: 600;
+  }
+  .Modal2 form button:hover{
+    background: linear-gradient(to bottom, #D2A74E, #6C5628);
+    color:#ffffff;
+  }
+  .Modal2 input{
+    width: 100%;
+    height: 100%;
+    margin: 5px 0px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 15px;
+    color: #000000;
+    padding: 10px 20px;
+  }
+  .Modal2 select{
+    width: 100%;
+    height: 100%;
+    margin: 5px 0px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+  .Modal1 select option{
+    color: #000000;
+  }
+  /**                                                CONTAINES                                                */
+  .ContentAcc{
+    background-color: #306a7a;
+    height: 137px;
+    margin: 20px 0 ;
+    text-align: left;
+    padding: 15px 15px 20px 15px;
+    border-radius: 20px;
+    color: #f3f3f3;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+  }
+  .ContentAcc #Income{
+    text-align: right;
+    padding-right: 20px;
+  }
+  .LeftSide{
+    height: 100%;
+  }
+  .LeftSide .Register{
+    background-color: #306a7a;
+    display: flex;
+    margin: 20px 0 ;
+    padding: 15px 15px 20px 15px;
+    border-radius: 20px;
+    justify-content:space-around;
+    height: 100%;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+    color: #f3f3f3;
+    height: 137px;
+  }
+  
+  .LeftSide .Register button{
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background-color: #f3f3f3;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+  }
+  .LeftSide .Register button #neg{
+    color: #923E3E;
+  }
+  .LeftSide .Register button #pos{
+    color: #20B068;
+  }
+  .LeftSide .Register button #neg:hover{
+    color: #f3f3f3;
+  }
+  .LeftSide .Register button #pos:hover{
+    color: #f3f3f3;
+  }
+  .LeftSide .Register button #neg{
+    color: #923E3E;
+  }
+  .LeftSide .Register #negb:hover{
+    background-color: #923E3E;
+  }
+  .LeftSide .Register #posb:hover{
+    background-color: #20B068;
+  }
+  
+  .line{
+    width: 2px;
+    background-color: #ffffff;
+    color: transparent;
+    
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, .5);
+  }
+  .TopSection{
+    width: 100%;
+  }
+  .BottomSection{
+    width: 100%;
+  }
+  .BottomSection h1{
+    font-size: 25px;
+  }
+  .Body{
+    position: fixed;
+    top:0;
+    left:100px;
+    width: 92%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 0;
+  }
+  .Body .BodyCenter{
+    width: 100%;
+    padding: 25px 50px 25px 20px;
+  }
+  .Body h1{
+    text-align: left;
+    margin-bottom: -15px;
+    text-shadow:  3px 3px 3px rgba(0, 0, 0, 0.15);
+  }
+  .ContentMeta{
+    background-color: #306a7a;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 ;
+    padding: 40px 15px 0px 15px;
+    border-radius: 20px;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+  }
+  .ContentMeta input{
+    width: 100%;
+    height: 50px;
+  }
+  .ContentRlt{
+    width: 900px;
+    background-color: #306a7a;
+    margin: 20px 0 ;
+    padding: 40px 15px 0px 15px;
+    border-radius: 20px;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+    font-size: 20px;
+    justify-self: center;
+  }
+  .Cct{
+    width: 900px;
+    justify-self: center;
+  }
+  #LogoutBnt:hover{
+    color: #923E3E;
+  }
+  .Buttons button{
+    width: 150px;
+    height: 45px;
+    margin: 15px 10px 10px 10px;
+    background: linear-gradient(to bottom, #D7BF92, #D2A74E, #D2A74E, #6C5628);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    cursor: pointer;
+    font-size: 16px;
+    color:#000000;
+    font-weight: 600;
+  }
+  .Buttons button:hover {
+    color: #f3f3f3;
+  }
+  .table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 15px;
+    overflow: hidden; 
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); 
+  }
+  .table thead th {
+    background: linear-gradient(to top, #6C5628, #D2A74E);
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+  }  
+  .table td, 
+  .table th {
+    border: none; 
+    padding: 15px;
+    text-align: left;
+  }
+  #footer th, #footer td{
+    background: linear-gradient(to bottom, #D7BF92, #D2A74E, #6C5628);
+    color: white;
+    padding: 10px;
+    font-weight: 600;
+  }
+  .table-container {
+    max-height: 300px; /* Altura máxima desejada */
+    overflow-y: auto; /* Ativa o scroll vertical */
+    overflow-x: hidden; /* Evita scroll horizontal */
+    margin: 10px 0; /* Espaçamento opcional */
+  }
+  
+  /* Adicional para estilizar a barra de rolagem */
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: #d2a64ee2;
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #bf7d3bdf;
+  }
+  .table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  .table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa; /* Fundo do cabeçalho fixo */
+    z-index: 2;
+  }
+  #ContentList{
+    background-color: #306a7a;
+    margin: 20px 0 ;
+    text-align: left;
+    padding: 15px 0px 15px 25px;
+    border-radius: 20px;
+    color: #f3f3f3;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, .5);
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  #ContentList li{
+    text-align: left;
+  }
+  #ContentList li:hover {
+    color: #f3f3f3;
+    cursor: default;
+  }

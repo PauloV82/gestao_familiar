@@ -17,16 +17,18 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email',
+            'password' => 'required|string|min:6',
         ]);
 
-        $user = new User();
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password'));
-        $user->save();
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+        ]);
 
         return response()->json([
-            'location' => route('users.show', $user->id)
+            'message' => 'Usuário criado com sucesso',
+            'user' => $user,
         ], 201);
     }
 
@@ -43,43 +45,40 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        try {
-            $user = User::findOrFail($id);
+        $user = User::find($id);
 
-            $name = $request->input('name');
-            if ($name) {
-                $user->name = $name;
-            }
-
-            $email = $request->input('email');
-            if ($email) {
-                $user->email = $email;
-            }
-
-            $password = $request->input('password');
-            if ($password) {
-                $user->password = bcrypt($password);
-            }
-
-            $user->save();
-
-            return response()->json($user);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro ao atualizar o usuário: ' . $e->getMessage()], 404);
+        if (!$user) {
+            return response()->json(['message' => 'Usuário não encontrado'], 404);
         }
+
+        $user->update($request->only(['name', 'email', 'password']));
+
+        return response()->json([
+            'message' => 'Usuário atualizado com sucesso',
+            'user' => $user,
+        ]);
     }
 
     public function destroy($id)
     {
-        try {
-            $user = User::findOrFail($id);
-            $user->delete();
+        $user = User::find($id);
 
-            return response()->noContent();
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        if (!$user) {
             return response()->json(['message' => 'Usuário não encontrado'], 404);
-        } catch (\Exception $e) {
-            return response()->json(['message' => 'Erro ao deletar o usuário: ' . $e->getMessage()], 409);
         }
+
+        $user->delete();
+
+        return response()->json(['message' => 'Usuário deletado com sucesso']);
+    }
+        public function nome(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['message' => 'Usuário não encontrado'], 404);
+        }
+
+        return response()->json(['message' => 'Nome obtido com sucesso!', 'data' => ['name' => $user->name]]);
     }
 }

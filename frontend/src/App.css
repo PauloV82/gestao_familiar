@@ -1,38 +1,251 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Questrial&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#LinkLogin {
+  background: none;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#LinkLogin:hover {
+  text-decoration: underline;
+}
+
+#LinkLogin:focus {
+  outline: none;
+}
+
+
+.Welcome{
+    width: 100%;
+    background-color: #f3f3f3;
+}
+.Welcome .Carousel{
+    width: 100%;
+}
+.Navbar{
+    background-color: #1E3F4D;
+    justify-content: space-between;
+    font: bolder;
+}
+.Navbar .Icon{
+    margin: 10px 10px 10px 30px;
+    display: flex;
+    width: 450px;
+    align-items: center;
+}
+.Navbar img {
+    width: 90px;
+    height: 90px;
+}
+.Navbar h1 {
+    margin-left: 10px;
+    background: linear-gradient(to bottom, #FCDB9A, #BF7D3B);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip:text;
+    font-weight: 600;
+    text-shadow:  3px 3px 8px rgba(255, 255, 255, 0.10);
+}
+.Navbar .Opt {
+  display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+}
+.Navbar .Opt a:hover {
+    text-decoration: underline;
+}
+#LinkLogin:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.Navbar .Opt .bnt{
+    background: linear-gradient(to bottom, #826831, #D2A74E, #d7ae5d, #6a5628);
+    margin-right: 80px;
+    margin-left: 30px;
+    width: 180px;
+    height: 55px;
+    justify-items: center;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 3px 3px 8px rgba(255, 255, 255, 0.10);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.Section {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  }
+  
+  .Section img {
+    width: 450px; 
+    margin: 80px 50px 10px 70px;
+  }
+  
+  .Section .CardBox {
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+  }
+  
+  .Section .CardBox h1 {
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    grid-column: span 2;
+    font-size: 52px;
+    margin: 50px 0px 20px 0px;
+    color: #333;
+  }
+  .Section .Card {
+    width: 400px;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 5px; 
+  }
+  
+  .Section .Card .number {
+    background-color: #D2A74E;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+  }
+  footer{
+    text-align: center;
+  }
+  footer .Barr{
+    height: 2px; 
+    background-color: #000000;
+  }
+  footer h1{
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+  }
+  footer .Infos{
+    margin-top: 20px;
+    padding-bottom: 60px;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  footer .Infos div:hover{
+    text-decoration: underline;
+  }
+
+/*^                                                MODAL                                                    */
+
+.ModalBackgrond{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Modal{
+  width: 350px;
+  background-color: #fffffff1;
+  color: #000000;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Modal h1{
+font-size: 40px;
+text-align: center;
+margin: 30px 0;
+color:#caa45d;
+font-weight: 800;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ExitBnt{
+  width: 30px;
+  height: 30px;
+  margin-left: 300px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-self: right;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(75, 75, 75, 0.614);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
 }
-
-.App-link {
-  color: #61dafb;
+.ExitBnt a{
+  color: #ffffff;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ExitBnt:hover{
+  background-color: rgba(180, 184, 183, 0.904);
+}
+.ExitBnt a:hover{
+  color: #ffffff;
+}
+.Modal form{
+  padding: 0 25px;
+}
+.Modal form button{
+  width: 100%;
+  height: 45px;
+  margin: 25px 0 50px 0;
+  background: linear-gradient(to bottom, #D7BF92, #D2A74E, #D2A74E, #6C5628);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+  cursor: pointer;
+  font-size: 16px;
+  color:#ffffff;
+  font-weight: 600;
+}
+.Modal form button:hover{
+  background: linear-gradient(to bottom, #D2A74E, #6C5628);
+  color:#ffffff;
+}
+.Modal input{
+  width: 100%;
+  height: 100%;
+  margin: 5px 0px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, .2);
+  border-radius: 40px;
+  font-size: 15px;
+  color: #000000;
+  padding: 10px 20px;
 }
